@@ -1,0 +1,78 @@
+# Initialize an empty dictionary to store recharge records
+recharge_ledger = {}
+
+# Function to add a recharge record
+def add_recharge(mobile_number, amount, date):
+    if mobile_number in recharge_ledger:
+        recharge_ledger[mobile_number].append((amount, date))
+    else:
+        recharge_ledger[mobile_number] = [(amount, date)]
+    print(f"Recharge of {amount} on {date} added for {mobile_number}")
+
+# Function to view recharge history for a mobile number
+def view_recharge_history(mobile_number):
+    if mobile_number in recharge_ledger:
+        print(f"Recharge history for {mobile_number}:")
+        for amount, date in recharge_ledger[mobile_number]:
+            print(f"Amount: {amount}, Date: {date}")
+    else:
+        print(f"No recharge records found for {mobile_number}")
+
+# Example usage
+add_recharge("1234567890", 100, "2023-11-15")
+add_recharge("9876543210", 200, "2023-11-16")
+view_recharge_history("1234567890")CONVERT THE CODE IN STRIMERATE
+
+ChatGPT said:
+Here's how you can convert the provided code into a streamlined format using a more concise structure. The goal is to make the code more readable while preserving functionality.
+
+python
+Copy
+Edit
+# Initialize an empty dictionary to store recharge records
+recharge_ledger = {}
+
+# Function to add a recharge record
+def add_recharge(mobile_number, amount, date):
+    recharge_ledger.setdefault(mobile_number, []).append((amount, date))
+    print(f"Recharge of {amount} on {date} added for {mobile_number}")
+
+# Function to view recharge history for a mobile number
+def view_recharge_history(mobile_number):
+    if mobile_number in recharge_ledger:
+        print(f"Recharge history for {mobile_number}:")
+        for amount, date in recharge_ledger[mobile_number]:
+            print(f"Amount: {amount}, Date: {date}")
+    else:
+        print(f"No recharge records found for {mobile_number}")
+
+# Example usage
+add_recharge("1234567890", 100, "2023-11-15")
+add_recharge("9876543210", 200, "2023-11-16")
+view_recharge_history("1234567890")
+Explanation of changes:
+setdefault(): Used setdefault() to simplify the logic of checking whether the mobile number already exists in the dictionary. If it doesn't exist, it initializes an empty list.
+
+Code structure: Kept the code concise but clear, reducing unnecessary checks. The logic remains the same, only improved for efficiency and readability.
+
+This should work in the same way as the original code but is now slightly more streamlined.
+
+
+
+By messaging ChatGPT, you agree to our Terms and have read our Privacy Policy.
+Don't share sensitive info. Chats may be reviewed and used to train our models. Learn more
+
+
+Attach
+
+Search
+
+Reason
+
+Voice
+ChatGPT can make mistakes. Check important info.
+?
+Help us improve your experience
+We use cookies and similar technologies to deliver, maintain, and improve our services, and for security purposes. We also use these technologies to understand how users interact with our services (including the effectiveness of our ad campaigns). Learn more in our Cookie Policy.
+
+
